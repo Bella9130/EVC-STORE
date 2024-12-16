@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta</title>
+    <script>
+        async function checkAccess() {
+            const response = await fetch("/check-access", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await response.json();
+
+            if (!data.access) {
+                document.body.innerHTML = `
+                    <h1 style="text-align: center; margin-top: 20%; font-size: 2em; color: red;">
+                        El acceso a esta página ha expirado.
+                    </h1>`;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            checkAccess();
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <iframe 
+        src="https://wheelofnames.com/mbg-75k" 
+        width="100vw" 
+        height="100vh">
+    </iframe>
+</body>
+</html>
