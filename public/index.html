@@ -4,141 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/media/image/logo_header.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>EVC STORE</title>
-    <style>
-        :root {
-            --dark-navy: #0a1128;
-            --navy: #001f54;
-            --gray: #f5f5f5;
-            --black: #000000;
-            --accent: #007bff; /* Optional accent color */
-        }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: var(--dark-navy);
-            color: var(--gray);
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: var(--navy);
-        }
-
-        header .logo img {
-            height: 50px;
-        }
-
-        header nav a {
-            color: var(--gray);
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        header nav a:hover {
-            color: var(--accent);
-        }
-
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 80vh;
-            background: url('https://cdn.mos.cms.futurecdn.net/MhjzZgD4fQu2XQKQGBcMsN.jpg') center/cover no-repeat, var(--dark-navy);
-            color: var(--gray);
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero button {
-            background-color: var(--accent);
-            color: var(--gray);
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .hero button:hover {
-            background-color: var(--gray);
-            color: var(--navy);
-        }
-
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 2rem;
-            gap: 1rem;
-            background-color: var(--navy);
-        }
-
-        .carousel .card {
-            flex: 0 0 300px;
-            background-color: var(--dark-navy);
-            color: var(--gray);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .carousel .card img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-
-        .carousel .card h3 {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-        }
-
-        .carousel .card p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .carousel .card button {
-            background-color: var(--accent);
-            color: var(--gray);
-            border: none;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .carousel .card button:hover {
-            background-color: var(--gray);
-            color: var(--navy);
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: var(--navy);
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -146,57 +15,407 @@
             <img src="/media/image/logo_header.png" alt="Logo">
         </div>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="/public/Ruleta/inicio_sesion/ruleta_usuario.html">Ruleta Sorteo</a>
+            <a href="/public/about/about.html">About</a>
+            <a href="/public/Streaming/streaming.html">Streaming</a>
+            <a href="#">Accesorios</a>
+            <a href="/public/Ruleta/inicio_sesion/ruleta_usuario.html">Ruleta</a>
+            
         </nav>
     </header>
 
     <section class="hero">
-        <div>
-            <h1>STREAMING</h1>
-            <p>Cuentas de todos los servicios de streaming con servicio al cliente con exelente precio.</p>
-            <button>Shop Now</button>
+    <div class="hero">
+        <!-- Videos -->
+        <video class="hero-video active" autoplay muted loop>
+            <source src="/media/video/N_juegoCa.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" autoplay muted loop>
+            <source src="/media/video/Moana 2 _1.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" autoplay muted loop>
+            <source src="/media/video/H_KungPanda.mp4" type="video/mp4">
+        </video>
+
+        <!-- Overlay con texto -->
+        <div class="hero-overlay">
+
+                <h1>EVC STORE</h1>
+                <p>Bienvenido a EVC Store GT, tu tienda de confianza para acceder a las mejores plataformas de entretenimiento al mejor precio. garantizando calidad, seguridad y soporte constante.</p>
+                <div class="button-content">
+                    <a href="/public/Streaming/streaming.html"><button>Streaming</button></a>
+                    <a href="/public/Streaming/streaming.html"><button>Accesorios</button></a>
+                </div>
+
+        </div>
+    </div>
+    </section>
+
+
+      <section class="carousel-container">
+        <p class="titulo">PROXIMOS EVENTOS</p>
+        <div class="carousel">
+          <!-- Card 1 -->
+          <div class="card">
+            <img src="/media/image/image_anun/1.jpeg" alt="Netflix">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="/media/image/image_anun/2.jpeg"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="card">
+            <img src="/media/image/image_anun/3.jpeg" alt="HBO MAX">
+            <div class="card-hover">
+              <p>Descripción de la tarjeta 2.</p>
+            </div>
+            <div class="price_content">
+                <p class="price">Q30</p>
+                <p class="price">/</p>
+                <p class="price">$2.87</p>
+                <p class="price">mes</p>
+            </div>
+            <div class="card-buttons">
+                <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="card">
+            <img src="/media/image/image_anun/4.jpeg" alt="Crunchy Roll">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="card">
+            <img src="/media/image/image_anun/5.jpeg" alt="Prime">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 5 -->
+          <div class="card">
+            <img src="/media/image/image_anun/6.jpeg" alt="paramount plus">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 6 -->
+          <div class="card">
+            <img src="/media/image/image_anun/7.jpeg" alt="IPTV">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 7 -->
+          <div class="card">
+            <img src="/media/image/VIXPLUS.jpeg" alt="VixPlus">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 8 -->
+          <div class="card">
+            <img src="/media/image/Spotify.jpeg" alt="Spotify">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 9 -->
+          <div class="card">
+            <img src="/media/image/Youtube.jpeg" alt="Youtube P">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 10 -->
+          <div class="card">
+            <img src="/media/image/Disney_plus.jpeg" alt="Disney Plus">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+
+
+        </div>
+        <div class="carousel-nav">
+          <button class="nav-btn prev-btn">&lt;</button>
+          <button class="nav-btn next-btn">&gt;</button>
+        </div>
+      </section>
+
+          <!-- PLANES DE VENTA  -->
+
+    <section class="section-plan">
+        <p class="titulos">COMBOS UNICOS</p>
+        <div class="div-planes">
+            <div class="plan-card">
+                <h2>Cine y Series</h2>
+                <p class="price">Q90<span>/Mes</span></p>
+                <ul>
+                    <li>¿Amas las series y películas? ¡Este combo es perfecto para ti! Incluye:</li>
+                    <li> 🍿 Netflix: Las mejores series y películas en un solo lugar. </li>
+                    <li>🎥 Max: Películas de estreno y series exclusivas.</li>
+                    <li>🎬 Disney Plus: Todo el universo de Disney, Marvel, Pixar y Star Wars.  </li>
+                    <li>✅ Acceso con cuentas personales. </li>
+                    <li>✅ 1 dispositivo simultáneo en cada plataforma.  </li>
+                    <li>✅ Nosotros te brindaremos un correo y una contraseña para el acceso.  </li>
+                    <li>✅ También recibirás un PIN para tu perfil (el PIN puede ser personalizado).</li>
+                    <li>✅ Contenido para toda la familia.  </li>
+                    <li>✅ Fácil de usar y 100% confiable.  </li>
+                </ul>
+                <button>¡Este Plan!</button>
+            </div>
+            <div class="plan-card">
+                <h2>Familiar</h2>
+                <p class="price">Q75<span>/Mes</span></p>
+                <ul>
+                    <li>¿Amas las series y películas? ¡Este combo es perfecto para ti! Incluye:</li>
+                    <li> 🍿 Netflix: Las mejores series y películas en un solo lugar. </li>
+                    <li>🎥 Max: Películas de estreno y series exclusivas.</li>
+                    <li>🎬 Disney Plus: Todo el universo de Disney, Marvel, Pixar y Star Wars.  </li>
+                    <li>✅ Acceso con cuentas personales. </li>
+                    <li>✅ 1 dispositivo simultáneo en cada plataforma.  </li>
+                    <li>✅ Nosotros te brindaremos un correo y una contraseña para el acceso.  </li>
+                    <li>✅ También recibirás un PIN para tu perfil (el PIN puede ser personalizado).</li>
+                    <li>✅ Contenido para toda la familia.  </li>
+                    <li>✅ Fácil de usar y 100% confiable.  </li>
+                </ul>
+                <button>¡Este Plan!</button>
+            </div>
+            <div class="plan-card premium">
+                <h2>Gamer y Anime</h2>
+                <p class="price">Q65<span>/Mes</span></p>
+                <ul>
+                    <li>¿Amas las series y películas? ¡Este combo es perfecto para ti! Incluye:</li>
+                    <li> 🍿 Netflix: Las mejores series y películas en un solo lugar. </li>
+                    <li>🎥 Max: Películas de estreno y series exclusivas.</li>
+                    <li>🎬 Disney Plus: Todo el universo de Disney, Marvel, Pixar y Star Wars.  </li>
+                    <li>✅ Acceso con cuentas personales. </li>
+                    <li>✅ 1 dispositivo simultáneo en cada plataforma.  </li>
+                    <li>✅ Nosotros te brindaremos un correo y una contraseña para el acceso.  </li>
+                    <li>✅ También recibirás un PIN para tu perfil (el PIN puede ser personalizado).</li>
+                    <li>✅ Contenido para toda la familia.  </li>
+                    <li>✅ Fácil de usar y 100% confiable.  </li>
+                </ul>
+                <button>Choose Plan</button>
+            </div>
+            <div class="plan-card">
+                <h2>Premium Streaming</h2>
+                <p class="price">Q80<span>/Mes</span></p>
+                <ul>
+                    <li>¿Amas las series y películas? ¡Este combo es perfecto para ti! Incluye:</li>
+                    <li> 🍿 Netflix: Las mejores series y películas en un solo lugar. </li>
+                    <li>🎥 Max: Películas de estreno y series exclusivas.</li>
+                    <li>🎬 Disney Plus: Todo el universo de Disney, Marvel, Pixar y Star Wars.  </li>
+                    <li>✅ Acceso con cuentas personales. </li>
+                    <li>✅ 1 dispositivo simultáneo en cada plataforma.  </li>
+                    <li>✅ Nosotros te brindaremos un correo y una contraseña para el acceso.  </li>
+                    <li>✅ También recibirás un PIN para tu perfil (el PIN puede ser personalizado).</li>
+                    <li>✅ Contenido para toda la familia.  </li>
+                    <li>✅ Fácil de usar y 100% confiable.  </li>
+                </ul>
+                <button>Choose Plan</button>
+            </div>
         </div>
     </section>
 
-    <section class="carousel">
-        <div class="card">
-            <img src="https://www.sammobile.com/wp-content/uploads/2023/11/Warner-Bros.-Discovery-Max-Previously-HBO-Max.jpg" alt="Featured Product 1">
-            <h3>Featured Product 1</h3>
-            <p>$59.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="card">
-            <img src="https://images.hitpaw.com/topics/netflix-tips/netflix-4k.jpg" alt="Featured Product 2">
-            <h3>Featured Product 2</h3>
-            <p>$69.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/300" alt="Featured Product 3">
-            <h3>Featured Product 3</h3>
-            <p>$79.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/300" alt="Featured Product 4">
-            <h3>Featured Product 4</h3>
-            <p>$89.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="card">
-            <img src="https://variety.com/wp-content/uploads/2023/04/Max-Logo-Warner-Bros.-Discovery.png?w=1000&h=587&crop=1" alt="Featured Product 1">
-            <h3>Featured Product 1</h3>
-            <p>$59.99</p>
-            <button>Add to Cart</button>
+        <!-- CONTADOR DE CUENTA REGRESIVA PARA MIEMBROS -->
+    <section class="countdown-main">
+        <h2>PROXIMA RULETA</h2>
+        <div class="countdown-container">
+            <h1>SOLO PARA MIEMBROS EXCLUSIVOS</h1>
+            <div class="countdown">
+                <div class="time">
+                    <span id="days">00</span>
+                    <p>Días</p>
+                </div>
+                <div class="divider"></div>
+                <div class="time">
+                    <span id="hours">00</span>
+                    <p>Horas</p>
+                </div>
+                <div class="divider"></div>
+                <div class="time">
+                    <span id="minutes">00</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="divider"></div>
+                <div class="time">
+                    <span id="seconds">00</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        &copy; 2024 ShopBlue. All Rights Reserved.
+
+      <!-- Preguntas frecuentes -->
+
+      <section class="faq-section">
+        <div class="faq-header">
+            <h1>Preguntas Frecuentes</h1>
+            <p>Encuentra respuestas a las preguntas más comunes.</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cómo puedo registrarme?</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="faq-answer">
+                    Puedes registrarte haciendo clic en el botón de "Registro" ubicado en la parte superior derecha de nuestra página de inicio.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuáles son los métodos de pago aceptados?</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="faq-answer">
+                    Aceptamos tarjetas de crédito, débito y PayPal como métodos de pago.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Ofrecen soporte técnico?</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="faq-answer">
+                    Sí, ofrecemos soporte técnico 24/7. Puedes contactarnos a través de nuestro formulario de contacto o al correo soporte@ejemplo.com.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+      <!-- formulario de comentarios-->
+      <section class="comment-form-section">
+        <div class="form-header">
+            <h1>Deja tu Comentario</h1>
+            <p>Tu opinión es muy importante para nosotros.</p>
+        </div>
+        <form class="comment-form" action="#" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+            
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+            
+            <label for="comment">Comentario:</label>
+            <textarea id="comment" name="comment" rows="5" placeholder="Escribe tu comentario aquí..." required></textarea>
+            
+            <button type="submit">Enviar Comentario</button>
+        </form>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Conéctate con nosotros</h2>
+            <p>¡Síguenos en nuestras redes sociales para más actualizaciones y ofertas exclusivas!</p>
+            <div class="social-icons">
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/1234567890" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                <a href="https://www.tiktok.com/@username" target="_blank" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Todos los derechos reservados | Creado por <span>CANO</span></p>
+        </div>
     </footer>
+    
+    <script src="/public/index.js"></script>
 </body>
 </html>

@@ -5,7 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-        /* Los estilos siguen igual */
+        :root {
+            --dark-navy: #0a1128;
+            --navy: #001f54;
+            --gray: #f5f5f5;
+            --black: #000000;
+            --accent: #007bff; /* Optional accent color */
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.avpasion.com/wp-content/uploads/2024/11/cuanto-cuesta-plataformas-streaming-08.jpg'); /* Ruta de la imagen de fondo */
+            background-size: cover; /* La imagen cubre toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita la repetición de la imagen */
+            color: var(--gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            backdrop-filter: blur(5px);
+        }
+
+        .login-container {
+            background-color: rgba(0, 31, 84, 0.9); /* Fondo con opacidad */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h1 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container input {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .login-container input[type="submit"] {
+            background-color: var(--accent);
+            color: var(--gray);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: var(--gray);
+            color: var(--navy);
+        }
+
+        .login-container .footer {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .login-container .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .login-container .footer a:hover {
+            color: var(--gray);
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -18,45 +101,37 @@
             <input type="submit" value="Log In">
         </form>
         <div class="footer">
-            <p>Don't have an account? <a href="#">Sign Up</a></p>
-            <p><a href="#">Forgot Password?</a></p>
+            <p>Solo los miembros del grupo tienen Acceso a esta sección<a href="/public/EXTRA/grupo_info.html"> Volverse Miembro</a></p>
+            <p><a href="/public/index.html">Ir a inicio</a></p>
         </div>
     </div>
 
     <script>
-        const response = await fetch("/login", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ username, password })
-});
+        // Mock user data
+        const users = [
+            { username: "jeff@EvcStore.com", password: "pass1" },
+            { username: "Linda@EvcStore.com", password: "pass2" },
+            { username: "Bella@EvcStore.com", password: "admin123" }
+        ];
 
         const loginForm = document.getElementById('loginForm');
         const errorMessage = document.getElementById('errorMessage');
 
-        loginForm.addEventListener('submit', async function(event) {
+        loginForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
 
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Enviar al servidor para verificar las credenciales
-            const response = await fetch("/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ username, password })
-            });
+            // Check if user exists
+            const user = users.find(u => u.username === username && u.password === password);
 
-            const data = await response.json();
-
-            if (data.access) {
+            if (user) {
+                errorMessage.textContent = "";
                 alert(`Welcome, ${username}!`);
-                window.location.href = "/public/Ruleta/ruleta.html"; // Redirigir a la página de la ruleta
+                window.location.href = "/public/Ruleta/Ruleta_func/ruleta.html"; // Redirect to another page
             } else {
-                errorMessage.textContent = data.message || "Invalid username or password.";
+                errorMessage.textContent = "Invalid username or password.";
             }
         });
     </script>

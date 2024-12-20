@@ -1,0 +1,224 @@
+
+:root {
+    --dark-navy: #0a1128;
+    --navy: #001f54;
+    --gray: #f5f5f5;
+    --black: #000000;
+    --accent: #007bff;
+    --light-gray: #e6e6e6;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--dark-navy);
+    color: var(--gray);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--gray);
+}
+
+h1, h2, h3 {
+    color: var(--gray);
+}
+
+p {
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--navy);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header nav a {
+    margin: 0 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 70vh;
+    background: url('https://wallpapers.com/images/hd/streaming-service-1920-x-1080-wallpaper-hhvs0othzenyyfjz.jpg') center/cover no-repeat, var(--dark-navy);
+    color: var(--gray);
+    padding: 0 1rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    bottom: 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    background-color: var(--accent);
+    color: var(--gray);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: var(--gray);
+    color: var(--navy);
+}
+
+/* About Section */
+.about-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.about-container h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mission-vision {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mission-vision div {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--navy);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mission-vision h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.mission-vision p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Service Cards */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.service-cards .card {
+    background-color: var(--navy);
+    padding: 2rem;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    justify-content: center;
+    color: var(--gray);
+    transition: transform 0.3s;
+}
+
+.service-cards .card:hover {
+    transform: translateY(-10px);
+}
+
+.service-cards .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Opinion Cards */
+.opinion-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.opinion-cards .card {
+    background-color: var(--navy);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: var(--gray);
+}
+
+.opinion-cards .card img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.opinion-cards .card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.opinion-cards .card .name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--navy);
+    color: var(--gray);
+}
+
+footer a {
+    margin: 0 1rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

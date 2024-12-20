@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/media/image/logo_header.png" type="image/x-icon">
+    <title>EVC STORE</title>
+    <style>
+        :root {
+            --dark-navy: #0a1128;
+            --navy: #001f54;
+            --gray: #f5f5f5;
+            --black: #000000;
+            --accent: #007bff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--black);
+            color: var(--gray);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 9rem 2rem 2rem;
+            background: transparent;
+            position: fixed;
+            gap: 500px;
+            width: 100%;
+            z-index: 10;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        header nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 15px;
+            border-radius: 10px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--gray);
+            background-color: var(--accent);
+            padding: 15px;
+            transition: color 0.3s
+        }
+
+
+        /* Video de fondo */
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 95vh;
+            overflow: hidden;
+        }
+
+        /* Estilo de los videos */
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Clase activa para mostrar un video */
+        .hero video.active {
+            opacity: 1;
+        }
+
+        /* Texto u overlay encima del video */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3); /* Efecto de oscurecimiento */
+        }
+
+        .hero-overlay h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, var(--dark-navy) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            bottom: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-align: justify;
+            margin: 0 290px;
+        }
+        .button-content{
+            width: 100%;
+            height: 2vh;
+            z-index: 2;
+        }
+
+        .button-content button {
+            background-color: var(--accent);
+            color: var(--gray);
+            border: none;
+            padding: 0.8rem 3rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            margin: 20px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-content button:hover {
+            background-color: var(--gray);
+            color: var(--navy);
+        }
+
+        /* -------------------
+                Carrusel
+        ---------------------- */
+
+    .carousel-container {
+      width: 100%;
+      padding: 100px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .card {
+      position: relative;
+      width: 250px;
+      height: 350px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .card-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: 15px;
+    }
+    .card-hover p{
+        margin: 0 25px;
+    }
+
+    .card:hover .card-hover {
+      opacity: 1;
+    }
+
+    .card-buttons {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 2px;
+    }
+    .price_content{
+    position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 2px;
+    }
+    .price{
+
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-style: italic;
+      font-size: 17px;
+    }
+
+    .btn {
+      padding: 10px 70px;
+      border: none;
+      border-radius: 20px;
+      background-color: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--navy);
+      transform: scale(1.05);
+    }
+
+    /* Navigation Arrows */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .nav-btn {
+      pointer-events: auto;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #fff;
+      margin: 0 50px;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 20px;
+      border-radius: 20%;
+      transition: background-color 0.3s;
+    }
+
+    .nav-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--navy);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/media/image/logo_header.png" alt="Logo">
+        </div>
+        <nav>
+            <a href="/public/about/about.html">About</a>
+            <a href="/public/index.html">Inicio</a>
+            <a href="#">Accesorios</a>
+            <a href="/public/Ruleta/inicio_sesion/ruleta_usuario.html">Ruleta Sorteo</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+    <div class="hero">
+        <!-- Videos -->
+        <video class="hero-video active" autoplay muted loop>
+            <source src="/media/video/N_juegoCa.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" autoplay muted loop>
+            <source src="/media/video/Moana 2 _1.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" autoplay muted loop>
+            <source src="/media/video/H_KungPanda.mp4" type="video/mp4">
+        </video>
+
+        <!-- Overlay con texto -->
+        <div class="hero-overlay">
+
+                <h1>Streaming</h1>
+                <p>Bienvenido a la sección de straming de EVC Store GT, tu tienda de confianza para acceder a las plaataformas de streaming. Con servicio al cliente siempre que lo necesites</p>
+                <div class="button-content">
+                    <a href="/public/Streaming/streaming.html"><button>Streaming</button></a>
+                    <a href="/public/Streaming/streaming.html"><button>Accesorios</button></a>
+                </div>
+
+        </div>
+    </div>
+    </section>
+
+    <section class="carousel-container">
+        <div class="carousel">
+          <!-- Card 1 -->
+          <div class="card">
+            <img src="https://yt3.googleusercontent.com/haakxzxYsFMSdeXaCrA_Yag87fANjsALOmZwEqjxzeAeeLGVfZdVSbwhr1cGadkn5Qdy9fwA=s900-c-k-c0x00ffffff-no-rj" alt="Netflix">
+            <div class="card-hover">
+                <p>Netflix: 1 perfil personalizado para 1 dispositivo. Cuenta familiar para 4 dispositivos a Q120 mensuales.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="card">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQTDDAGMRBdhECOGFQT07122lTRJyeLkQc4_THkmf7iZCruGDPN" alt="HBO MAX">
+            <div class="card-hover">
+              <p>Max: Acceso a estrenos y contenido exclusivo en 1 dispositivo. Más dispositivos con costo adicional.</p>
+            </div>
+            <div class="price_content">
+                <p class="price">Q30</p>
+                <p class="price">/</p>
+                <p class="price">$2.87</p>
+                <p class="price">mes</p>
+            </div>
+            <div class="card-buttons">
+                <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="card">
+            <img src="https://i.pinimg.com/originals/fa/a7/e8/faa7e80c57c1c7c0b70c24f4ba6efcc1.jpg" alt="Crunchy Roll">
+            <div class="card-hover">
+                <p>Crunchyroll: Perfil premium para 1 dispositivo. Añade más dispositivos por un precio adicional.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="card">
+            <img src="/media/image/Prime_logo.jpeg" alt="Prime">
+            <div class="card-hover">
+                <p>Prime Video: Acceso exclusivo para 1 dispositivo. Más dispositivos por un costo adicional.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 5 -->
+          <div class="card">
+            <img src="/media/image/Paramount_logo.jpeg" alt="paramount plus">
+            <div class="card-hover">
+                <p>Paramount Plus: 1 dispositivo con acceso a series y deportes. Más dispositivos con un costo extra.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 6 -->
+          <div class="card">
+            <img src="/media/image/IPTV.jpeg" alt="IPTV">
+            <div class="card-hover">
+                <p>IPTV Smarters Pro: Más de 4,000 canales en vivo, películas de Netflix, Prime Video, y mucho más. Un poco de todo en 1 dispositivo, con opción a más dispositivos por un costo extra.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 7 -->
+          <div class="card">
+            <img src="/media/image/VIXPLUS.jpeg" alt="VixPlus">
+            <div class="card-hover">
+                <p>Descripción de la tarjeta 2.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 8 -->
+          <div class="card">
+            <img src="/media/image/Spotify.jpeg" alt="Spotify">
+            <div class="card-hover">
+                <p>Vix Plus: Contenido mexicano y más en 1 dispositivo. Añade más dispositivos por un precio adicional.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 9 -->
+          <div class="card">
+            <img src="/media/image/Youtube.jpeg" alt="Youtube P">
+            <div class="card-hover">
+                <p>YouTube Premium: Reproduce en hasta 3 dispositivos simultáneos.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+          <!-- card 10 -->
+          <div class="card">
+            <img src="/media/image/Disney_plus.jpeg" alt="Disney Plus">
+            <div class="card-hover">
+                <p>Disney Plus: Disfruta contenido premium en 1 dispositivo. Más dispositivos disponibles con un costo extra.</p>
+              </div>
+              <div class="price_content">
+                  <p class="price">Q30</p>
+                  <p class="price">/</p>
+                  <p class="price">$2.87</p>
+                  <p class="price">mes</p>
+              </div>
+              <div class="card-buttons">
+                  <a href="https://wa.me/50255916942"><button class="btn">Comprar</button></a>
+              </div>
+          </div>
+
+
+        </div>
+        <div class="carousel-nav">
+          <button class="nav-btn prev-btn">&lt;</button>
+          <button class="nav-btn next-btn">&gt;</button>
+        </div>
+      </section>
+    
+
+
+    <footer>
+        &copy; 2024 ShopBlue. All Rights Reserved.
+    </footer>
+    <script>
+    const carousel = document.querySelector('.carousel');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const cardCount = carousel.children.length;
+    const cardWidth = 270; // Card width + gap (250 + 20)
+    const visibleCards = Math.floor(document.querySelector('.carousel-container').offsetWidth / cardWidth);
+
+    let currentIndex = 0;
+    let autoScroll;
+
+    function updateCarousel() {
+      const offset = -currentIndex * cardWidth;
+      carousel.style.transform = `translateX(${offset}px)`;
+
+      // Disable buttons at edges
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= cardCount - visibleCards;
+    }
+
+    function startAutoScroll() {
+      autoScroll = setInterval(() => {
+        if (currentIndex < cardCount - visibleCards) {
+          currentIndex++;
+        } else {
+          clearInterval(autoScroll);
+        }
+        updateCarousel();
+      }, 5000);
+    }
+
+    function resetAutoScroll() {
+      clearInterval(autoScroll);
+      startAutoScroll();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) currentIndex--;
+      updateCarousel();
+      resetAutoScroll();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < cardCount - visibleCards) currentIndex++;
+      updateCarousel();
+      resetAutoScroll();
+    });
+
+    // Initialize
+    updateCarousel();
+    startAutoScroll();
+      </script>
+</body>
+</html>
