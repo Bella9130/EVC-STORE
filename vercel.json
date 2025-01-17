@@ -1,0 +1,9 @@
+{
+    "cleanUrls": true,
+    "rewrites": [
+      { "source": "/about", "destination": "/about/about.html" },
+      { "source": "/Streaming", "destination": "/Streaming/streaming.html" },
+      { "source": "/Ruleta", "destination": "/Ruleta/inicio_sesion/ruleta_usuario.html" }
+    ]
+  }
+  
