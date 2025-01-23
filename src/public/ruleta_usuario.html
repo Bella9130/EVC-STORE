@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/Ruleta/inicio_sesion/ruleta_usuario.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/ruleta_usuario.css" />
     <title>Página de Inicio de Sesión</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="login-container">
-        <h1>Página de Inicio de Sesión</h1>
-        <form id="loginForm">
-            <div id="errorMessage" class="error"></div>
-            <input type="text" id="username" placeholder="Usuario" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <input type="submit" value="Iniciar Sesión">
-        </form>
-        <div class="footer">
-            <p>Solo los miembros tienen acceso. <a href="/public/EXTRA/grupo_info.html">Volverse Miembro</a></p>
-            <p><a href="/public/index.html">Ir al Inicio</a></p>
-        </div>
+      <h1>Página de Inicio de Sesión</h1>
+      <form id="loginForm">
+        <div id="errorMessage" class="error"></div>
+        <input type="text" id="username" placeholder="Usuario" required />
+        <input
+          type="password"
+          id="password"
+          placeholder="Contraseña"
+          required
+        />
+        <input type="submit" value="Iniciar Sesión" />
+      </form>
+      <div class="footer">
+        <p>
+          Solo los miembros tienen acceso.
+          <a href="/public/EXTRA/grupo_info.html">Volverse Miembro</a>
+        </p>
+        <p><a href="/public/index.html">Ir al Inicio</a></p>
+      </div>
     </div>
 
-    <script src="/public/Ruleta/inicio_sesion/ruleta_usuario.js"></script>
-</body>
+    <script src="/src/js/ruleta_usuario.js"></script>
+  </body>
 </html>

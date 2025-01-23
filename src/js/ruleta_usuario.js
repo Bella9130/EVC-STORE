@@ -21,7 +21,7 @@
             if (user) {
                 errorMessage.textContent = "";
                 alert(`¡Bienvenido, ${username}!`);
-                window.location.href = "/public/Ruleta/Ruleta_func/ruleta.html"; // Redirige a otra página
+                window.location.href = "/src/public/ruleta.html"; // Redirige a otra página
             } else {
                 errorMessage.textContent = "Usuario o contraseña incorrectos.";
             }
