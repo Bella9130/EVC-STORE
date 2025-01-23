@@ -93,6 +93,6 @@ function startCountdown(eventDate) {
     setInterval(updateCountdown, 1000);
 }
 
-const eventDate = new Date('2024-12-31T23:59:59').getTime(); // Cambia la fecha aquí
+const eventDate = new Date('2025-02-13T23:59:59').getTime(); // Cambia la fecha aquí
 startCountdown(eventDate);
 
